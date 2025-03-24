@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './App.css';
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const API_URL = 'http://localhost:3000/api';
 
@@ -13,6 +14,7 @@ const BattleArena = () => {
   const [winner, setWinner] = useState(null);
   const [phase, setPhase] = useState("roll"); // "roll", "result"
   const [battleResult, setBattleResult] = useState("");
+  
 
   useEffect(() => {
     if (!selectedPokemon || selectedPokemon.length !== 2) {
@@ -36,10 +38,12 @@ const BattleArena = () => {
     setWinner(winner);
 
     // Send result to the server
-    axios.post(`${API_URL}/battleresults`, {
-      selectedPokemon: [pokemon1, pokemon2],
-      battleResult: `${winner.name} wins`,
-    }).catch((error) => console.log("Error updating battle results:", error));
+    if (winner) {
+      axios.post(`${API_URL}/battleresults`, {
+        selectedPokemon: [pokemon1, pokemon2],
+        battleResult: `${winner.name} wins`,
+      }).catch((error) => console.log("Error updating battle results:", error));
+    }
 
     setTimeout(() => navigate('/'), 5000); // Return to selection screen
   };
@@ -56,6 +60,7 @@ const BattleArena = () => {
 
   return (
     <div className="battle-arena">
+      <SpeedInsights />
       <h1>Battle Arena</h1>
       <div className="arena">
         <div className="card-left">

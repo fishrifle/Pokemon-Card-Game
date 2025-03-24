@@ -36,14 +36,14 @@ body {
   padding: 10px;
   border-radius: 8px;
   text-align: center;
-  color: #eae2e2;
+  color: #ffffff;
   box-shadow: 10px 12px 14px rgba(19, 18, 18, 0.2);
   transition: transform 0.4s ease-in, border 0.5s ease-in-out;
   cursor: pointer;
   perspective: 1000px;
   font-size: 16px;
   justify-content: space-evenly;
-  border: solid 5px white;
+  border: solid 5px #f6f6f8;
   
 }
 
@@ -70,7 +70,7 @@ body {
  }
 
 .card-front {
-  color: rgb(184, 179, 179);
+  color: rgb(251, 246, 246);
   width: 100%;
   max-width: fit-content;
  }
@@ -143,7 +143,14 @@ body {
   align-self: center;  
 }
 
-.battle-button, .reset-button {
+.reset-button {
+  height: 40px;
+  width: 50px;
+}
+
+
+
+.battle-button {
   padding: 10px 20px;
   width: 100%;
   height: 75px;
@@ -182,22 +189,16 @@ body {
 
 /* Battle Arena Styling */
 .battle-arena {
-  background-color: #050505;
+  background-color: #000000;
   height: 100vh;
   width: 100vw;
   padding: 20px;
-  background-image: url(https://wallpapers.com/images/high/pokemon-battle-background-1023-x-747-labisp7e4b4wf67h.webp);
-  color: #1b1b1b;
-  display: inline-flex;
+  /* background-image: url(https://wallpapers.com/images/high/pokemon-battle-background-1023-x-747-labisp7e4b4wf67h.webp); */
+  color: #eb1111;
   text-align: center;
+  border: solid 3px yellow
 }
 
-
-
-.card-left, .card-right {
-  width: 120px;
-  animation: fly-in 1.5s ease-out;
-}
 
 .dice-roll {
   text-align: center;
@@ -253,3 +254,16 @@ h2 {
 }
 
 
+.card-left {
+  
+  height: 12rem;
+  width: 8rem;
+  /* border: 2px solid blue; */
+  
+}
+
+.card-right {
+  height: 12rem;
+  width: 8rem;
+  /* border: 2px solid green; */
+}
